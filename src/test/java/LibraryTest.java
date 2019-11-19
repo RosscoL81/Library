@@ -13,7 +13,7 @@ public class LibraryTest {
     Book book5;
 
     @Before
-    public void before(){
+    public void before() {
         library = new Library(4);
         book1 = new Book("Football: My Life, My Passion", "Graeme Souness", "autobiography");
         book2 = new Book("The Midnight Line", "Lee Child", "Fiction");
@@ -23,18 +23,18 @@ public class LibraryTest {
     }
 
     @Test
-    public void bookCountStartsAt0(){
+    public void bookCountStartsAt0() {
         assertEquals(0, library.bookCount());
     }
 
     @Test
-    public void canAddBookToStock(){
+    public void canAddBookToStock() {
         library.addBook(book1);
         assertEquals(1, library.bookCount());
     }
 
     @Test
-    public void cantAddBookToStock(){
+    public void cantAddBookToStock() {
         library.addBook(book1);
         library.addBook(book2);
         library.addBook(book3);
@@ -43,5 +43,12 @@ public class LibraryTest {
         assertEquals(4, library.bookCount());
     }
 
+    @Test
+    public void canRemoveABook() {
+        library.addBook(book1);
+        library.removeBook(book1);
+        assertEquals(0, library.bookCount());
+    }
 
 }
+
